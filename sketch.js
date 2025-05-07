@@ -8,8 +8,14 @@ let dialSequence = '';
 let gameTriggered = false;
 let gameTimer = 0;
 
+let sampleSound;
+
+function preload() {
+  sampleSound = loadSound('sample.mp3');
+}
+
 function setup() {
-  createCanvas(400, 600);
+  let cnv = createCanvas(400, 600);
   textAlign(CENTER, CENTER);
   textSize(24);
 
@@ -32,7 +38,6 @@ function setup() {
   osc1.start();
   osc2.start();
 
-  // 创建 FFT 对象用于频谱分析
   fft = new p5.FFT();
 
   let btnSize = 80;
@@ -80,7 +85,7 @@ function draw() {
     textSize(20);
     text('🎉 Your call has been made！', width / 2, 160);
   }
-  
+
   drawSpectrum();
 
   fill(50);
@@ -100,9 +105,12 @@ function mousePressed() {
         dialSequence = dialSequence.slice(-10);
       }
 
-      if (dialSequence.includes("123456") && !gameTriggered) {
+      if (dialSequence.endsWith("123456")) {
         gameTriggered = true;
         gameTimer = millis();
+        if (!sampleSound.isPlaying()) {
+          sampleSound.play();
+        }
       }
     }
   }
