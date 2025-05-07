@@ -4,12 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Rain's Cellphone</title>
-  <!-- p5.js 库 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script>
   <style>
     body { margin: 0; font-family: sans-serif; }
-    /* 文字容器，固定在页面顶部 */
     #info {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -18,14 +16,12 @@
       text-align: center;
       z-index: 100;
     }
-    /* 画布容器：在 info 下面 */
     #sketch-container {
       position: absolute;
       top: 60px; bottom: 0;
       left: 0; right: 0;
       overflow: hidden;
     }
-    /* 确保 canvas 占满容器 */
     #sketch-container canvas {
       display: block;
     }
@@ -33,17 +29,15 @@
 </head>
 
 <body>
-  <!-- 顶部文字介绍 -->
   <div id="info">
     <h1>Rain's Cellphone</h1>
     <p>Intro to Programming Final Project</p>
     <p>Producer: Rain Huang</p>
+    <p>https://editor.p5js.org/rainhwangjunin/sketches/NP5uJ_tAf</p>
   </div>
 
-  <!-- 画布挂载点 -->
   <div id="sketch-container"></div>
 
-  <!-- p5.js 草图 -->
   <script src="sketch.js"></script>
 </body>
 </html>
